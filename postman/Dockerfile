@@ -2,6 +2,7 @@ FROM ubuntu:19.04
 
 RUN apt-get update \
     && apt-get install -y \
+    iproute2 \
     libgtk-3-0 \
     libnss3-dev \
     libx11-xcb-dev \
@@ -15,6 +16,6 @@ RUN wget https://dl.pstmn.io/download/latest/linux64 -O postman-linux-x64.tar.gz
     && ln -s /opt/Postman/Postman /usr/bin/postman \
     && rm postman-linux-x64.tar.gz
 
-RUN apt-get update && apt-get install -y aptitude
+# RUN apt-get update && apt-get install -y aptitude
 
 ENTRYPOINT [ "postman" ]
